@@ -1,7 +1,18 @@
 import random
 
 def hangman():
-    word = random.choice(["tiger", "superman", "thor", "doraemon", "avenger", "water", "stream"])
+    try:
+        with open('words.txt', 'r', encoding='utf-8') as file:
+            words = [line.strip() for line in file if line.strip()]
+    except FileNotFoundError:
+        print("Файл words.txt не найден. Используются слова по умолчанию.")
+        words = ["tiger", "superman", "thor", "doraemon", "avenger", "water", "stream"]
+    
+    if not words:
+        print("Файл words.txt пуст. Используются слова по умолчанию.")
+        words = ["tiger", "superman", "thor", "doraemon", "avenger", "water", "stream"]
+    
+    word = random.choice(words)  
     validletter = 'abcdefghijklmnopqrstuvwxyz'
     turns = 10
     guessmade = ''

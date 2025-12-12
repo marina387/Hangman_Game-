@@ -1,0 +1,8 @@
+elephant 
+giraffe 
+kangaroo 
+butterfly 
+dolphin 
+engineer
+teacher
+doctor
